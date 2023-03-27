@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,7 +42,11 @@ public class AddSuppliersActivity extends BaseActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true); //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
-        getSupportActionBar().setTitle(R.string.add_suppliers);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.add_suppliers) + "</font>"));
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_flotting_btn));
+
+
 
         etxtSuppliersName = findViewById(R.id.etxt_supplier_name);
         etxtSuppliersContactPerson = findViewById(R.id.etxt_supplier_contact_name);

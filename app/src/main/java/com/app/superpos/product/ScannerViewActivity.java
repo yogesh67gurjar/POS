@@ -3,6 +3,7 @@ package com.app.superpos.product;
 import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -32,7 +33,11 @@ public class ScannerViewActivity extends BaseActivity implements ZXingScannerVie
 
         getSupportActionBar().setHomeButtonEnabled(true); //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
-        getSupportActionBar().setTitle(R.string.qr_barcode_scanner);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.qr_barcode_scanner) + "</font>"));
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_flotting_btn));
+
+
 
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             requestCameraPermission();
