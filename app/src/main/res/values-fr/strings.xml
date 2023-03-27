@@ -190,11 +190,11 @@
     <string name="please_wait">S\'il vous plaît, attendez. . .</string>
     <string name="no_network_connection">Pas de connexion réseau</string>
     <string name="products">Des produits</string>
-    <string name="stock">(Stock)</string>
+    <string name="stock">Stock</string>
     <string name="stock_not_available_please_update_stock">Stock non disponible. Veuillez mettre à jour le stock</string>
     <string name="low_stock">(Stock faible)</string>
     <string name="not_available">(Indisponible)</string>
-    <string name="in_stock">En stock</string>
+    <string name="in_stock">(En stock)</string>
 
     <string name="product_stock">Stock de produits</string>
     <string name="please_input_product_stcok">Veuillez saisir le stock de produit</string>

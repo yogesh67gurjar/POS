@@ -1,6 +1,7 @@
 package com.app.superpos.about;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +17,10 @@ public class AboutActivity extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true); //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
-        getSupportActionBar().setTitle(R.string.about_us);
+//        getSupportActionBar().setTitle(R.string.about_us);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.about_us) + "</font>"));
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_flotting_btn));
+
     }
 
     //for back button

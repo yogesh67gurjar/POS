@@ -247,7 +247,7 @@ public class ExpenseReportActivity extends BaseActivity {
 
                         if (totalExpense!=null) {
 
-                            txtTotalPrice.setText(getString(R.string.total_expense) + "="+currency + f.format(Double.parseDouble(totalExpense)));
+                            txtTotalPrice.setText(getString(R.string.total_expense) + " "+currency + f.format(Double.parseDouble(totalExpense)));
                         }
 
                         else

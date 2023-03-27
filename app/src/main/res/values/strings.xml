@@ -211,9 +211,9 @@
 
     <string name="stock_not_available_please_update_stock">Stock not available. Please update stock</string>
     <string name="low_stock">(Low Stock)</string>
-    <string name="stock">(Stock)</string>
+    <string name="stock">Stock</string>
     <string name="not_available">(Not Available)</string>
-    <string name="in_stock">In Stock</string>
+    <string name="in_stock">(In Stock)</string>
     <string name="product_stock">Product Stock</string>
     <string name="please_input_product_stcok">Please input product stock</string>
     <string name="invalid_email_or_password">Invalid email or password!</string>

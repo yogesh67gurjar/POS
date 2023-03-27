@@ -9,10 +9,10 @@
         <menu>
 
 
-            <item
-                android:id="@+id/local_french"
-                android:icon="@drawable/france"
-                android:title="@string/text_french" />
+<!--            <item-->
+<!--                android:id="@+id/local_french"-->
+<!--                android:icon="@drawable/france"-->
+<!--                android:title="@string/text_french" />-->
 
 
             <item
@@ -20,10 +20,10 @@
                 android:icon="@drawable/us"
                 android:title="@string/text_english" />
 
-            <item
-                android:id="@+id/local_bangla"
-                android:icon="@drawable/bangladesh"
-                android:title="@string/text_bangla" />
+<!--            <item-->
+<!--                android:id="@+id/local_bangla"-->
+<!--                android:icon="@drawable/bangladesh"-->
+<!--                android:title="@string/text_bangla" />-->
 
             <item
                 android:id="@+id/local_spanish"

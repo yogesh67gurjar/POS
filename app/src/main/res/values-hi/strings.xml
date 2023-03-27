@@ -189,11 +189,11 @@
     <string name="please_wait">कृपया प्रतीक्षा कीजिये। । ।</string>
     <string name="no_network_connection">नेटवर्क कनेक्शन नहीं है</string>
     <string name="products">उत्पाद</string>
-    <string name="stock">(भण्डार)</string>
+    <string name="stock">भण्डार</string>
     <string name="stock_not_available_please_update_stock">स्टॉक उपलब्ध नहीं है। कृपया स्टॉक अपडेट करें</string>
     <string name="low_stock">(कम स्टॉक)</string>
     <string name="not_available">(उपलब्ध नहीं है)</string>
-    <string name="in_stock">स्टॉक में</string>
+    <string name="in_stock">(स्टॉक में)</string>
     <string name="product_stock">उत्पाद स्टॉक</string>
     <string name="please_input_product_stcok">कृपया इनपुट उत्पाद स्टॉक</string>
     <string name="invalid_email_or_password">अमान्य ईमेल या पासवर्ड!</string>

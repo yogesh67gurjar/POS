@@ -45,6 +45,7 @@ public class DeviceListActivity extends AppCompatActivity {
         // Setup the window
         //supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_device_list);
+
         ActionBar br = getSupportActionBar();
         if (br!=null){
             br.setDisplayHomeAsUpEnabled(true);

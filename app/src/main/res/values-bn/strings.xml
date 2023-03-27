@@ -211,11 +211,11 @@
     <string name="please_wait">অপেক্ষা করুন. . .</string>
     <string name="no_network_connection">ইন্টারনেট কানেকশন নেই </string>
     <string name="products">পণ্য </string>
-    <string name="stock">( স্টক )</string>
+    <string name="stock">স্টক</string>
     <string name="stock_not_available_please_update_stock">স্টকে নেই। স্টক আপডেট করুন </string>
     <string name="low_stock">( স্টক কম )</string>
     <string name="not_available">( পাওয়া যায়নি )</string>
-    <string name="in_stock">স্টকে আছে </string>
+    <string name="in_stock">( স্টকে আছে )</string>
     <string name="product_stock">পণ্যের স্টক </string>
     <string name="please_input_product_stcok">পণ্যের স্টক ইনপুট দিন </string>
     <string name="invalid_email_or_password">ই-মেইল অথবা পাসওয়ার্ড সঠিক নয় </string>

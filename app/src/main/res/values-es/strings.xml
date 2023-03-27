@@ -201,11 +201,11 @@
     <string name="please_wait">Por favor espera. . .</string>
     <string name="no_network_connection">No hay conexion de red</string>
     <string name="products">Productos</string>
-    <string name="stock">(Valores)</string>
+    <string name="stock">Valores</string>
     <string name="stock_not_available_please_update_stock">Stock no disponible. Por favor actualice stock</string>
     <string name="low_stock">(Stock bajo)</string>
     <string name="not_available">(No disponible)</string>
-    <string name="in_stock">En stock</string>
+    <string name="in_stock">(En stock)</string>
 
     <string name="product_stock">Stock de producto</string>
     <string name="please_input_product_stcok">Por favor ingrese el stock del producto</string>

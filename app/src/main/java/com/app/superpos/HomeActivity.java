@@ -254,9 +254,9 @@ public class HomeActivity extends BaseActivity {
         switch (id) {
 
 
-            case R.id.local_french:
-                setNewLocale(this, LocaleManager.FRENCH);
-                return true;
+//            case R.id.local_french:
+//                setNewLocale(this, LocaleManager.FRENCH);
+//                return true;
 
 
             case R.id.local_english:
@@ -264,9 +264,9 @@ public class HomeActivity extends BaseActivity {
                 return true;
 
 
-            case R.id.local_bangla:
-                setNewLocale(this, LocaleManager.BANGLA);
-                return true;
+//            case R.id.local_bangla:
+//                setNewLocale(this, LocaleManager.BANGLA);
+//                return true;
 
             case R.id.local_spanish:
                 setNewLocale(this, LocaleManager.SPANISH);
