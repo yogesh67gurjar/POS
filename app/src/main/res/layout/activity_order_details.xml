@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_5">
+    android:background="@color/grey_5"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler"
@@ -43,7 +43,7 @@
                     android:fontFamily="@font/sailec_regular"
                     android:gravity="center"
                     android:text="@string/no_order_found"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/fontBlackEnable"
                     android:textSize="24sp" />
             </LinearLayout>
 
@@ -55,65 +55,82 @@
                 android:gravity="right"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txt_total_price"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/colorPrimary"
-                    android:gravity="right"
-                    android:padding="5dp"
-                    android:text="@string/total_price"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/sailec_regular" />
+                    android:background="@drawable/bg_corner"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="7dp"
+                    android:paddingVertical="10dp">
 
-                <TextView
-                    android:id="@+id/txt_tax"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/colorPrimary"
-                    android:gravity="right"
-                    android:padding="5dp"
-                    android:text="@string/tax"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/sailec_regular" />
+                    <TextView
+                        android:id="@+id/txt_total_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/transparent"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:text="@string/total_price"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/fontBlackEnable"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sailec_regular" />
 
-                <TextView
-                    android:id="@+id/txt_discount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/colorPrimary"
-                    android:gravity="right"
-                    android:padding="5dp"
-                    android:text="@string/discount"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/sailec_regular" />
+                    <TextView
+                        android:id="@+id/txt_tax"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/transparent"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:text="@string/tax"
 
-                <TextView
-                    android:id="@+id/txt_total_cost"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@color/colorPrimary"
-                    android:gravity="right"
-                    android:padding="5dp"
-                    android:text="@string/total_price"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/sailec_regular" />
+                        android:textAlignment="textStart"
+                        android:textColor="@color/fontBlackEnable"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sailec_regular" />
+
+                    <TextView
+                        android:id="@+id/txt_discount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/colorPrimary"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:text="@string/discount"
+                        android:textAlignment="textStart"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:fontFamily="@font/sailec_regular" />
+
+                    <TextView
+                        android:id="@+id/txt_total_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@color/transparent"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:text="@string/total_price"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/fontBlackEnable"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sailec_regular" />
+
+
+                </LinearLayout>
 
 
                 <com.balysv.materialripple.MaterialRippleLayout
@@ -130,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:background="@color/grey_60"
+                        android:background="@drawable/bg_login_btn"
                         android:fontFamily="@font/sailec_regular"
                         android:text="@string/generate_pdf_receipt"
                         android:textColor="#fff"
@@ -151,7 +168,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:background="@color/design_default_color_secondary_variant"
+                        android:background="@drawable/bg_login_btn"
                         android:fontFamily="@font/sailec_regular"
                         android:text="Print Receipt Via Thermal Printer"
                         android:textColor="#fff"
