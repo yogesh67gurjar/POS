@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/colorPrimaryDark">
+        android:background="@drawable/gradiant_flotting_btn">
 
         <TextView
             android:id="@+id/dialog_title"
@@ -43,8 +43,9 @@
             android:textSize="16sp"
             android:textColor="@color/textColorSecondaryLight"
             android:textColorHint="@color/textColorPrimaryDark"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="5dp"
+            android:drawableEnd="@drawable/ic_search"
+            android:paddingEnd="10dp"
+            android:drawablePadding="10dp"
             android:padding="5dp"
             android:background="@drawable/rounded_corners_edittext_light" />
 
@@ -76,7 +77,7 @@
             android:textSize="16sp"
             android:textColor="@color/white"
             android:textAlignment="center"
-            android:background="@color/colorPrimaryDark" />
+            android:background="@drawable/gradiant_flotting_btn" />
 
     </LinearLayout>
 

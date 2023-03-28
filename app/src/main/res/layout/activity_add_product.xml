@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -48,19 +48,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_name" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_name" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -78,19 +78,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_code" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_code" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -105,7 +105,7 @@
                         android:id="@+id/etxt_product_code"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginEnd="35dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
@@ -129,19 +129,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_category" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_category" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -161,19 +161,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_description" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_description" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -192,19 +192,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_stock" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_stock" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -223,20 +223,20 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_buy_price" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_buy_price" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -254,19 +254,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/unit_product_sell_price" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/unit_product_sell_price" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -285,19 +285,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/product_weight" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/product_weight" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -315,19 +315,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/select_product_weight_unit" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/select_product_weight_unit" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -347,19 +347,19 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/select_supplier" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/select_supplier" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
@@ -379,19 +379,19 @@
             </androidx.cardview.widget.CardView>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:fontFamily="@font/sailec_regular"
-                android:padding="5dp"
-                android:text="@string/tax" />
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:fontFamily="@font/sailec_regular"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="@string/tax" />-->
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 app:cardCornerRadius="30dp"
                 app:cardElevation="10dp">
 
