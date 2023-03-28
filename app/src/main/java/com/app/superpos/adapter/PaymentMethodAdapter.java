@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,12 @@ import com.app.superpos.R;
 import com.app.superpos.database.DatabaseAccess;
 import com.app.superpos.settings.payment_method.EditPaymentMethodActivity;
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,6 +36,7 @@ public class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdap
 
     private List<HashMap<String, String>> paymentMethodData;
     private Context context;
+
 
 
     public PaymentMethodAdapter(Context context, List<HashMap<String, String>> paymentMethodData) {
@@ -53,8 +60,11 @@ public class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdap
         final String payment_method_id = paymentMethodData.get(position).get(Constant.PAYMENT_METHOD_ID);
         String paymentMethodName = paymentMethodData.get(position).get(Constant.PAYMENT_METHOD_NAME);
 
-
         holder.txtPaymentMethodName.setText(paymentMethodName);
+
+
+
+
 
 
         holder.imgDelete.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +118,7 @@ public class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdap
 
     }
 
+
     @Override
     public int getItemCount() {
         return paymentMethodData.size();
@@ -117,6 +128,7 @@ public class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdap
 
         TextView txtPaymentMethodName;
         ImageView imgDelete;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -138,6 +150,8 @@ public class PaymentMethodAdapter extends RecyclerView.Adapter<PaymentMethodAdap
             context.startActivity(i);
         }
     }
+
+
 
 
 }

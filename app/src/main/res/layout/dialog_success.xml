@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/gradiant_flotting_btn"
             android:orientation="horizontal">
 
             <ImageButton
@@ -86,7 +86,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/gradiant_flotting_btn"
                         android:fontFamily="@font/sailec_regular"
                         android:text="@string/view_all_orders"
                         android:textColor="#fff"

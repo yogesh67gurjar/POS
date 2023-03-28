@@ -1,5 +1,6 @@
 package com.app.superpos.settings.payment_method;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,9 +10,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +23,15 @@ import com.app.superpos.adapter.PaymentMethodAdapter;
 import com.app.superpos.database.DatabaseAccess;
 import com.app.superpos.utils.BaseActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,20 +46,33 @@ public class PaymentMethodActivity extends BaseActivity {
     EditText etxtSearch;
 
     FloatingActionButton fabAdd;
+    ImageButton paypal;
+
+
+    String clientId = "AWcP2CFx7BLyVcyN7OagZDrbACnZ2hnwBmTEoWwb2GjHcUgqh79VL7ml_bCdDCtGM_WSb8L-_Mcy2sBW";
+    int PAYPAL_REQUEST_CODE = 295;
+
+    public static PayPalConfiguration payPalConfiguration;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_method);
+        paypal = findViewById(R.id.paypal);
+        payPalConfiguration = new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+                .clientId(clientId);
 
+        paypal.setOnClickListener(v -> {
+//            getPayment();
+
+        });
 
         getSupportActionBar().setHomeButtonEnabled(true); //for back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//for back button
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">" + getString(R.string.all_payment_method) + "</font>"));
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_flotting_btn));
-
 
 
         recyclerView = findViewById(R.id.recycler_view);
@@ -150,6 +174,43 @@ public class PaymentMethodActivity extends BaseActivity {
 
     }
 
+
+    private void getPayment() {
+
+
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(String.valueOf(200)), "USD", "Shubham", PayPalPayment.PAYMENT_INTENT_SALE);
+        Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, payPalConfiguration);
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+
+        startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+    }
+
+    //FOR PAYPAL
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//
+//        if (requestCode == PAYPAL_REQUEST_CODE) {
+//            PayPalConfiguration paymentConfiguration = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+//            if (paymentConfiguration != null) {
+//                try {
+//                    String paymentDetails = paymentConfiguration.toString();
+//
+//                    JSONObject object = new JSONObject(paymentDetails);
+//                } catch (JSONException e) {
+//                    Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//
+//            } else if (requestCode == Activity.RESULT_CANCELED) {
+//                Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        } else if (requestCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+//            Toast.makeText(this, "Invalid Payment", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     //for back button
     @Override
