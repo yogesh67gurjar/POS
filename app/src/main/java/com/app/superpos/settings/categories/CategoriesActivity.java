@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -65,8 +66,9 @@ public class CategoriesActivity extends BaseActivity {
 
 
         // set a GridLayoutManager with default vertical orientation and 3 number of columns
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager); // set LayoutManager to RecyclerView
+        GridLayoutManager layoutManager=new GridLayoutManager(this,3);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager); // set LayoutManager to RecyclerView
 
 
         recyclerView.setHasFixedSize(true);
