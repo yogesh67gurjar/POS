@@ -90,7 +90,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
                         .withTitle(context.getString(R.string.delete))
                         .withMessage(context.getString(R.string.want_to_delete_customer))
                         .withEffect(Slidetop)
-                        .withDialogColor("#43a047") //use color code for dialog
+                        .withDialogColor("#1D97E6") //use color code for dialog
                         .withButton1Text(context.getString(R.string.yes))
                         .withButton2Text(context.getString(R.string.cancel))
                         .setButton1Click(new View.OnClickListener() {
