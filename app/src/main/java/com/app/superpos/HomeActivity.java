@@ -210,7 +210,7 @@ public class HomeActivity extends BaseActivity {
                     .withTitle(getString(R.string.logout))
                     .withMessage(R.string.want_to_logout_from_app)
                     .withEffect(Slidetop)
-                    .withDialogColor("#43a047") //use color code for dialog
+                    .withDialogColor("#1d97e6") //use color code for dialog
                     .withButton1Text(getString(R.string.yes))
                     .withButton2Text(getString(R.string.cancel))
                     .setButton1Click(new View.OnClickListener() {

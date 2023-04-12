@@ -105,7 +105,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
                         .withTitle(context.getString(R.string.delete))
                         .withMessage(context.getString(R.string.want_to_delete_order))
                         .withEffect(Slidetop)
-                        .withDialogColor("#43a047") //use color code for dialog
+                        .withDialogColor("#1d97e6") //use color code for dialog
                         .withButton1Text(context.getString(R.string.yes))
                         .withButton2Text(context.getString(R.string.cancel))
                         .setButton1Click(new View.OnClickListener() {

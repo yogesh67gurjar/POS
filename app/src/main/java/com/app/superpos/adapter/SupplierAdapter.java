@@ -92,7 +92,7 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.MyView
                         .withTitle(context.getString(R.string.delete))
                         .withMessage(context.getString(R.string.want_to_delete_supplier))
                         .withEffect(Slidetop)
-                        .withDialogColor("#43a047") //use color code for dialog
+                        .withDialogColor("#1d97e6") //use color code for dialog
                         .withButton1Text(context.getString(R.string.yes))
                         .withButton2Text(context.getString(R.string.cancel))
                         .setButton1Click(v1 -> {
