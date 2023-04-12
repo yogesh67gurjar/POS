@@ -8,10 +8,10 @@ public class Constant {
     }
 
     //For retrofit base url must end with /
-    public static final String BASE_URL = "https://demo.onlinesoftsell.com/superpos/api/";
+    public static final String BASE_URL = "https://hirectjob.in/pos/api/";
 
     //For retrofit base url must end with /
-    public static final String PRODUCT_IMAGE_URL = "https://demo.onlinesoftsell.com/superpos/product_images/";
+    public static final String PRODUCT_IMAGE_URL = "https://hirectjob.in/pos/product_images/";
 
 
 
