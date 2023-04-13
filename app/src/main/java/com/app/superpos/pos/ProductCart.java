@@ -71,7 +71,7 @@ public class ProductCart extends BaseActivity {
     List<Customer> customerData;
     ArrayAdapter<String> customerAdapter, orderTypeAdapter, paymentMethodAdapter;
     SharedPreferences sp;
-    String servedBy,staffId,shopTax,currency,shopID,ownerId;
+    String servedBy, staffId, shopTax, currency, shopID, ownerId;
     DecimalFormat f;
 
     @Override
@@ -85,21 +85,19 @@ public class ProductCart extends BaseActivity {
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_flotting_btn));
 
 
-
         f = new DecimalFormat("#0.00");
         sp = getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
         servedBy = sp.getString(Constant.SP_STAFF_NAME, "");
         staffId = sp.getString(Constant.SP_STAFF_ID, "");
-        shopTax= sp.getString(Constant.SP_TAX, "");
-        currency= sp.getString(Constant.SP_CURRENCY_SYMBOL, "");
+        shopTax = sp.getString(Constant.SP_TAX, "");
+        currency = sp.getString(Constant.SP_CURRENCY_SYMBOL, "");
 
         shopID = sp.getString(Constant.SP_SHOP_ID, "");
         ownerId = sp.getString(Constant.SP_OWNER_ID, "");
 
 
-
-        getCustomers(shopID,ownerId);
+        getCustomers(shopID, ownerId);
 
         RecyclerView recyclerView = findViewById(R.id.cart_recyclerview);
         imgNoProduct = findViewById(R.id.image_no_product);
@@ -187,7 +185,7 @@ public class ProductCart extends BaseActivity {
                 String timeStamp = tsLong.toString();
                 Log.d("Time", timeStamp);
                 //Invoice number=INV+StaffID+CurrentYear+timestamp
-                String invoiceNumber="INV"+staffId+currentYear+timeStamp;
+                String invoiceNumber = "INV" + staffId + currentYear + timeStamp;
 
                 final JSONObject obj = new JSONObject();
                 try {
@@ -219,9 +217,7 @@ public class ProductCart extends BaseActivity {
                         String productImage = lines.get(i).get("product_image");
 
 
-
                         String productWeightUnit = lines.get(i).get("product_weight_unit");
-
 
 
                         JSONObject objp = new JSONObject();
@@ -246,18 +242,13 @@ public class ProductCart extends BaseActivity {
                 }
 
 
-                Utils utils=new Utils();
+                Utils utils = new Utils();
 
-                if(utils.isNetworkAvailable(ProductCart.this))
-                {
-                   orderSubmit(obj);
-                }
-                else
-                {
+                if (utils.isNetworkAvailable(ProductCart.this)) {
+                    orderSubmit(obj);
+                } else {
                     Toasty.error(this, R.string.no_network_connection, Toast.LENGTH_SHORT).show();
                 }
-
-
 
 
             }
@@ -268,12 +259,9 @@ public class ProductCart extends BaseActivity {
     }
 
 
-
-
-
     private void orderSubmit(final JSONObject obj) {
 
-        Log.d("Json",obj.toString());
+        Log.d("Json", obj.toString());
 
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
@@ -295,7 +283,7 @@ public class ProductCart extends BaseActivity {
 
                     progressDialog.dismiss();
                     Toasty.success(ProductCart.this, R.string.order_successfully_done, Toast.LENGTH_SHORT).show();
-
+                    Log.e("new data", String.valueOf(body2));
                     databaseAccess.open();
                     databaseAccess.emptyCart();
                     dialogSuccess();
@@ -306,6 +294,7 @@ public class ProductCart extends BaseActivity {
 
                     progressDialog.dismiss();
                     Log.d("error", response.toString());
+                    Log.e("new data", String.valueOf(body2));
 
                 }
 
@@ -322,8 +311,6 @@ public class ProductCart extends BaseActivity {
 
 
     }
-
-
 
 
     public void dialogSuccess() {
@@ -343,7 +330,7 @@ public class ProductCart extends BaseActivity {
 
             alertDialogSuccess.dismiss();
 
-            Intent intent = new Intent(ProductCart.this,PosActivity.class);
+            Intent intent = new Intent(ProductCart.this, PosActivity.class);
             startActivity(intent);
             finish();
 
@@ -374,10 +361,9 @@ public class ProductCart extends BaseActivity {
 
 
         String shopCurrency = currency;
-       // String tax = shopTax;
+        // String tax = shopTax;
 
         double getTax = totalTax;
-
 
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(ProductCart.this);
@@ -687,16 +673,14 @@ public class ProductCart extends BaseActivity {
     }
 
 
-
-
-    public void getCustomers(String shopId,String ownerId) {
+    public void getCustomers(String shopId, String ownerId) {
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
         Call<List<Customer>> call;
 
 
-        call = apiInterface.getCustomers("",shopId,ownerId);
+        call = apiInterface.getCustomers("", shopId, ownerId);
 
         call.enqueue(new Callback<List<Customer>>() {
             @Override
@@ -711,7 +695,7 @@ public class ProductCart extends BaseActivity {
 
                     for (int i = 0; i < customerData.size(); i++) {
 
-                       customerNames.add(customerData.get(i).getCustomerName());
+                        customerNames.add(customerData.get(i).getCustomerName());
 
                     }
                 }
@@ -727,8 +711,6 @@ public class ProductCart extends BaseActivity {
 
 
     }
-
-
 
 
     //for back button

@@ -131,7 +131,6 @@ public class EditCustomersActivity extends BaseActivity {
     }
 
 
-
     private void updateCustomer(String id,String name,String cell,String email, String address) {
 
         loading=new ProgressDialog(this);
