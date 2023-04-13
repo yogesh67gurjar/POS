@@ -271,10 +271,10 @@ public class HomeActivity extends BaseActivity {
             case R.id.local_spanish:
                 setNewLocale(this, LocaleManager.SPANISH);
                 return true;
-
-            case R.id.local_hindi:
-                setNewLocale(this, LocaleManager.HINDI);
-                return true;
+//
+//            case R.id.local_hindi:
+//                setNewLocale(this, LocaleManager.HINDI);
+//                return true;
             default:
                 Log.d("Default", "default");
 
