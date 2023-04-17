@@ -2,6 +2,7 @@ package com.app.superpos.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         String categoryName = categoryData.get(position).getProductCategoryName();
         holder.txtCategoryName.setText(categoryName);
-
+        Log.d("data...",categoryData.get(position).getProductCategoryId());
+        Log.d("data...",categoryData.get(position).getProductCategoryName());
 
 
 

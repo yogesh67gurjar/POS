@@ -318,7 +318,10 @@ public interface ApiInterface {
                              @Part(Constant.TAX) RequestBody tax,
                              @Part(Constant.SP_SHOP_ID) RequestBody shopId,
                              @Part(Constant.SP_OWNER_ID) RequestBody ownerId,
-                             @Part(Constant.PRODUCT_BUY_PRICE) RequestBody productBuyPrice);
+                             @Part(Constant.PRODUCT_BUY_PRICE) RequestBody productBuyPrice
+//                             @Part("product_buy_price") RequestBody product_buy_price
+
+    );
 
 
     //for upload image and info
@@ -388,6 +391,7 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("add_category.php")
     Call<Category> addCategory(
+//            @Field("product_category_name") String category,
             @Field(Constant.CATEGORY_NAME) String category,
             @Field(Constant.SP_SHOP_ID) String shopId,
             @Field(Constant.SP_OWNER_ID) String owner

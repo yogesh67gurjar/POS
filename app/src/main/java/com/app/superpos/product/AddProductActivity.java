@@ -491,6 +491,22 @@ public class AddProductActivity extends BaseActivity {
             RequestBody getTax = RequestBody.create(MediaType.parse("text/plain"), tax);
 
 
+            Log.e("file", file.toString());
+            Log.e("fileToupload", fileToUpload.toString());
+            Log.e("productName", productName);
+            Log.e("productCode", productCode);
+            Log.e("productCategoryId", productCategoryId);
+            Log.e("productDescription", productDescription);
+            Log.e("productSellPrice", productSellPrice);
+            Log.e("productBuyPrice", productBuyPrice);
+            Log.e("productWeight", productWeight);
+            Log.e("productWeightUnitId", productWeightUnitId);
+            Log.e("productSupplierId", productSupplierId);
+            Log.e("productStock", productStock);
+            Log.e("shopId", shopId);
+            Log.e("ownerId", ownerId);
+
+
             ApiInterface getResponse = ApiClient.getApiClient().create(ApiInterface.class);
             Call<Product> call = getResponse.addProduct(fileToUpload, filename, name, code, category, description, sellPrice, weight, weightUnitId, supplierId, stock, getTax, getShopId, getOwnerId, buyPrice);
             call.enqueue(new Callback<Product>() {
@@ -520,6 +536,7 @@ public class AddProductActivity extends BaseActivity {
 
                     } else {
                         loading.dismiss();
+                        Log.e("data....", response.message());
                         Log.d("Error", response.errorBody().toString());
                     }
 

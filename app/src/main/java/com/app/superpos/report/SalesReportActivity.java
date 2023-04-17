@@ -96,7 +96,9 @@ public class SalesReportActivity extends BaseActivity {
         //to view all sales data
         getReport("all",shopID,ownerId,currentYear);
 
-
+            Log.e("DATa.....1",shopID);
+            Log.e("DATa.....2",ownerId);
+            Log.e("DATa.....3",currentYear);
 
 
     }
@@ -190,7 +192,7 @@ public class SalesReportActivity extends BaseActivity {
                     List<SalesReport> salesReport;
                     salesReport = response.body();
 
-
+//                    Log.e("prices",response.body().get(0).getTotalOrderPrice());
 
                     if (salesReport.isEmpty()) {
 
@@ -210,7 +212,7 @@ public class SalesReportActivity extends BaseActivity {
                             txtTotalPrice.setText(getString(R.string.total_price) + "=" + currency + f.format(Double.parseDouble(totalOrderPrice)));
                             txtTotalTax.setText(getString(R.string.total_tax) + "=" + currency + f.format(Double.parseDouble(totalTax)));
                             txtTotalDiscount.setText(getString(R.string.total_discount) + "=" + currency + f.format(Double.parseDouble(totalDiscount)));
-
+                                Log.e("prices",totalOrderPrice);
                             Double orderPrice = Double.parseDouble(totalOrderPrice);
                             Double getTax = Double.parseDouble(totalTax);
                             Double getDiscount = Double.parseDouble(totalDiscount);

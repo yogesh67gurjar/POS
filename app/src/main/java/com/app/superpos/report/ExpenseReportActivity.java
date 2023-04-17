@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +37,7 @@ import retrofit2.Response;
 
 public class ExpenseReportActivity extends BaseActivity {
 
-
+    LinearLayout secondLL;
     private RecyclerView recyclerView;
 
     ImageView imgNoProduct;
@@ -52,7 +53,7 @@ public class ExpenseReportActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense_report);
-
+        secondLL = findViewById(R.id.secondLL);
         recyclerView = findViewById(R.id.recycler);
         imgNoProduct = findViewById(R.id.image_no_product);
 
@@ -257,6 +258,7 @@ public class ExpenseReportActivity extends BaseActivity {
 
                         else
                         {
+                            secondLL.setVisibility(View.INVISIBLE);
                             txtTotalPrice.setVisibility(View.INVISIBLE);
                         }
 
