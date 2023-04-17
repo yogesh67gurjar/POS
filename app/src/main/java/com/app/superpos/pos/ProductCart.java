@@ -190,6 +190,18 @@ public class ProductCart extends BaseActivity {
                 final JSONObject obj = new JSONObject();
                 try {
 
+                    Log.e("invoiceNumber",invoiceNumber);
+                    Log.e("currentDate",currentDate);
+                    Log.e("currentTime",currentTime);
+                    Log.e("type",type);
+                    Log.e("paymentMethod",paymentMethod);
+                    Log.e("orderPrice",String.valueOf(orderPrice));
+                    Log.e("tax",String.valueOf(tax));
+                    Log.e("discount",discount);
+                    Log.e("customerName",customerName);
+                    Log.e("servedBy",servedBy);
+                    Log.e("shopID",shopID);
+                    Log.e("ownerId",ownerId);
 
                     obj.put("invoice_id", invoiceNumber);
                     obj.put("order_date", currentDate);
@@ -199,6 +211,7 @@ public class ProductCart extends BaseActivity {
                     obj.put("customer_name", customerName);
 
                     obj.put("order_price", String.valueOf(orderPrice));
+//                    obj.put("order_price", String.valueOf(price));
                     obj.put("tax", String.valueOf(tax));
                     obj.put("discount", discount);
                     obj.put("served_by", servedBy);
@@ -293,6 +306,7 @@ public class ProductCart extends BaseActivity {
                     Toasty.error(ProductCart.this, R.string.error, Toast.LENGTH_SHORT).show();
 
                     progressDialog.dismiss();
+                    Log.e("daata.....", response.message());
                     Log.d("error", response.toString());
                     Log.e("new data", String.valueOf(body2));
 
@@ -649,7 +663,7 @@ public class ProductCart extends BaseActivity {
         final AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
-
+//dfsdgtfdsg
         dialogBtnSubmit.setOnClickListener(v -> {
 
             String orderType1 = dialogOrderType.getText().toString().trim();
@@ -661,7 +675,12 @@ public class ProductCart extends BaseActivity {
             }
 
             proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
-
+            Log.e("orderpaymentMethod", orderPaymentMethod);
+            Log.e("orderType1", orderType1);
+            Log.e("customerName", customerName);
+            Log.e("getTax", String.valueOf(getTax));
+            Log.e("discount1", discount1);
+            Log.e("calculatedTotalCost", String.valueOf(calculatedTotalCost));
 
             alertDialog.dismiss();
         });

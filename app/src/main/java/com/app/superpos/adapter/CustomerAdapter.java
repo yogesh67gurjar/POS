@@ -101,6 +101,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
                                 if (utils.isNetworkAvailable(context)) {
                                     deleteCustomer(customer_id);
                                     customerData.remove(holder.getAdapterPosition());
+                                    notifyDataSetChanged();
                                     dialogBuilder.dismiss();
                                 }
                                 else

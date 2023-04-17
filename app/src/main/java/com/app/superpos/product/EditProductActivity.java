@@ -815,6 +815,7 @@ public class EditProductActivity extends BaseActivity {
 
                 } else {
                     loading.dismiss();
+                    Log.e("data...",response.message());
                     Log.d("Error", response.errorBody().toString());
                 }
 

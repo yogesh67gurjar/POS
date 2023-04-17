@@ -119,6 +119,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                                 if (utils.isNetworkAvailable(context)) {
                                     deleteProduct(product_id);
                                     productData.remove(holder.getAdapterPosition());
+                                    notifyDataSetChanged();
                                     dialogBuilder.dismiss();
                                 } else {
                                     dialogBuilder.dismiss();
