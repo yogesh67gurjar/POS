@@ -62,9 +62,6 @@ public class DatabaseAccess {
     }
 
 
-
-
-
     //insert payment method
     public boolean addPaymentMethod(String paymentMethodName) {
 
@@ -84,7 +81,6 @@ public class DatabaseAccess {
             return true;
         }
     }
-
 
 
     //update payment method
@@ -108,10 +104,8 @@ public class DatabaseAccess {
     }
 
 
-
-
     //Add product into cart
-    public int addToCart(String productId, String productName, String weight, String weightUnit, String price, int qty, String productImage,String productStock,double tax) {
+    public int addToCart(String productId, String productName, String weight, String weightUnit, String price, int qty, String productImage, String productStock, double tax) {
 
 
         Cursor result = database.rawQuery("SELECT * FROM product_cart WHERE product_id='" + productId + "'", null);
@@ -173,8 +167,6 @@ public class DatabaseAccess {
                 map.put(Constant.TAX, cursor.getString(cursor.getColumnIndex("tax")));
 
 
-
-
                 product.add(map);
             } while (cursor.moveToNext());
         }
@@ -191,10 +183,6 @@ public class DatabaseAccess {
         database.delete(Constant.productCart, null, null);
         database.close();
     }
-
-
-
-
 
 
     //delete product from cart
@@ -238,8 +226,6 @@ public class DatabaseAccess {
 
 
     }
-
-
 
 
     //get product name
@@ -292,8 +278,6 @@ public class DatabaseAccess {
     }
 
 
-
-
     //calculate total price of product
     public double getTotalTax() {
 
@@ -318,8 +302,6 @@ public class DatabaseAccess {
         database.close();
         return totalTax;
     }
-
-
 
 
     //calculate total CGST
@@ -348,7 +330,6 @@ public class DatabaseAccess {
     }
 
 
-
     //calculate total SGST
     public double getTotalSGST() {
 
@@ -373,7 +354,6 @@ public class DatabaseAccess {
         database.close();
         return totalSGST;
     }
-
 
 
     //calculate total SGST
@@ -663,16 +643,26 @@ public class DatabaseAccess {
     public ArrayList<HashMap<String, String>> getOrderType() {
         ArrayList<HashMap<String, String>> orderType = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT * FROM order_type ORDER BY order_type_id DESC", null);
+        int pos = 0;
+
+        //////////////////////////////
         if (cursor.moveToFirst()) {
             do {
-                HashMap<String, String> map = new HashMap<>();
+                if (pos == 1 || pos == 2 || pos == 3) {
+                    ++pos;
+                    continue;
+                }else {
+                    ++pos;
+                    HashMap<String, String> map = new HashMap<>();
 
 
-                map.put("order_type_id", cursor.getString(0));
-                map.put("order_type_name", cursor.getString(1));
+                    map.put("order_type_id", cursor.getString(0));
+                    map.put("order_type_name", cursor.getString(1));
 
 
-                orderType.add(map);
+                    orderType.add(map);
+                }
+
             } while (cursor.moveToNext());
         }
         cursor.close();

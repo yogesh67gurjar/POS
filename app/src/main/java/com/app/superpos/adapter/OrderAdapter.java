@@ -116,6 +116,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
                                 if (utils.isNetworkAvailable(context)) {
                                     deleteOrder(invoiceId);
                                     orderData.remove(holder.getAdapterPosition());
+                                    notifyDataSetChanged();
                                     dialogBuilder.dismiss();
                                 } else {
                                     dialogBuilder.dismiss();
