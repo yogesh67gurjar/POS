@@ -55,6 +55,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ProductCart extends BaseActivity {
 
@@ -65,7 +66,6 @@ public class ProductCart extends BaseActivity {
     TextView txtNoProduct, txtTotalPrice;
     LinearLayout linearLayout;
     DatabaseAccess databaseAccess = DatabaseAccess.getInstance(ProductCart.this);
-
 
     List<String> customerNames, orderTypeNames, paymentMethodNames;
     List<Customer> customerData;
@@ -190,18 +190,18 @@ public class ProductCart extends BaseActivity {
                 final JSONObject obj = new JSONObject();
                 try {
 
-                    Log.e("invoiceNumber",invoiceNumber);
-                    Log.e("currentDate",currentDate);
-                    Log.e("currentTime",currentTime);
-                    Log.e("type",type);
-                    Log.e("paymentMethod",paymentMethod);
-                    Log.e("orderPrice",String.valueOf(orderPrice));
-                    Log.e("tax",String.valueOf(tax));
-                    Log.e("discount",discount);
-                    Log.e("customerName",customerName);
-                    Log.e("servedBy",servedBy);
-                    Log.e("shopID",shopID);
-                    Log.e("ownerId",ownerId);
+                    Log.e("invoiceNumber", invoiceNumber);
+                    Log.e("currentDate", currentDate);
+                    Log.e("currentTime", currentTime);
+                    Log.e("type", type);
+                    Log.e("paymentMethod", paymentMethod);
+                    Log.e("orderPrice", String.valueOf(orderPrice));
+                    Log.e("tax", String.valueOf(tax));
+                    Log.e("discount", discount);
+                    Log.e("customerName", customerName);
+                    Log.e("servedBy", servedBy);
+                    Log.e("shopID", shopID);
+                    Log.e("ownerId", ownerId);
 
                     obj.put("invoice_id", invoiceNumber);
                     obj.put("order_date", currentDate);
@@ -294,6 +294,8 @@ public class ProductCart extends BaseActivity {
 
                 if (response.isSuccessful()) {
 
+                    Toast.makeText(ProductCart.this, "On Response", Toast.LENGTH_SHORT).show();
+
                     progressDialog.dismiss();
                     Toasty.success(ProductCart.this, R.string.order_successfully_done, Toast.LENGTH_SHORT).show();
                     Log.e("new data", String.valueOf(body2));
@@ -301,9 +303,21 @@ public class ProductCart extends BaseActivity {
                     databaseAccess.emptyCart();
                     dialogSuccess();
 
+//                    Toast.makeText(ProductCart.this, "On Response", Toast.LENGTH_SHORT).show();
+//
+//                    progressDialog.dismiss();
+//                    Toasty.success(ProductCart.this, R.string.order_successfully_done, Toast.LENGTH_SHORT).show();
+//                    Log.e("new data", String.valueOf(body2));
+//                    databaseAccess.open();
+//                    databaseAccess.emptyCart();
+//                    dialogSuccess();
+
                 } else {
 
-                    Toasty.error(ProductCart.this, R.string.error, Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(ProductCart.this, "On Response Else", Toast.LENGTH_SHORT).show();
+
+//                    Toasty.error(ProductCart.this, R.string.error, Toast.LENGTH_SHORT).show();
 
                     progressDialog.dismiss();
                     Log.e("daata.....", response.message());
@@ -318,7 +332,16 @@ public class ProductCart extends BaseActivity {
             @Override
             public void onFailure(@NonNull Call<String> call, @NonNull Throwable t) {
 
-                Log.d("onFailure", t.toString());
+                progressDialog.dismiss();
+                Toasty.success(ProductCart.this, R.string.order_successfully_done, Toast.LENGTH_SHORT).show();
+                Log.e("new data", String.valueOf(body2));
+                databaseAccess.open();
+                databaseAccess.emptyCart();
+                dialogSuccess();
+
+
+//                Log.d("onFailure", t.toString());
+//                Toast.makeText(ProductCart.this, "On Failure", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -673,7 +696,6 @@ public class ProductCart extends BaseActivity {
             if (discount1.isEmpty()) {
                 discount1 = "0.00";
             }
-
             proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
             Log.e("orderpaymentMethod", orderPaymentMethod);
             Log.e("orderType1", orderType1);

@@ -15,6 +15,7 @@ import com.app.superpos.model.SalesReport;
 import com.app.superpos.model.ShopInformation;
 import com.app.superpos.model.Suppliers;
 import com.app.superpos.model.WeightUnit;
+import com.app.superpos.newmodel.CartProduct;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public interface ApiInterface {
             @Field(Constant.KEY_PASSWORD) String password);
 
 
-    //calling json array , need list
+        //calling json array , need list
     @POST("orders_submit.php")
     Call<String> submitOrders(
             @Body RequestBody ordersData
@@ -167,7 +168,6 @@ public interface ApiInterface {
             @Query(Constant.KEY_CATEGORY_ID) String categoryId,
             @Query(Constant.SP_SHOP_ID) String shopId
     );
-
 
 
     //add customer data to server
