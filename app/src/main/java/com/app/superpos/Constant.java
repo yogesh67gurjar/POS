@@ -9,6 +9,7 @@ public class Constant {
 
     //For retrofit base url must end with /
     public static final String BASE_URL = "https://hirectjob.in/pos/api/";
+    public static final String BASE_URL2 = "https://fsapi.fibrestream.co.za/";
 
     //For retrofit base url must end with /
     public static final String PRODUCT_IMAGE_URL = "https://hirectjob.in/pos/product_images/";
