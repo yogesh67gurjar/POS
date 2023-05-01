@@ -2,6 +2,7 @@ package com.app.superpos.networking;
 
 
 import com.app.superpos.Constant;
+import com.app.superpos.NFCResponse;
 import com.app.superpos.model.Category;
 import com.app.superpos.model.Customer;
 import com.app.superpos.model.Expense;
@@ -42,7 +43,7 @@ public interface ApiInterface {
             @Field(Constant.KEY_PASSWORD) String password);
 
 
-        //calling json array , need list
+    //calling json array , need list
     @POST("orders_submit.php")
     Call<String> submitOrders(
             @Body RequestBody ordersData
@@ -406,5 +407,13 @@ public interface ApiInterface {
             @Field(Constant.SP_SHOP_ID) String shopId,
             @Field(Constant.SP_OWNER_ID) String owner
     );
+
+    @FormUrlEncoded
+    @POST("pos.php")
+    Call<NFCResponse> postNFC(@Field("cardno") String cardno,
+                              @Field("amount") String amount,
+                              @Field("store") String store,
+                              @Field("description") String description);
+
 
 }
