@@ -1,9 +1,5 @@
 package com.app.superpos.networking;
 
-
-
-
-
 import com.app.superpos.Constant;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,13 +10,12 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+public class ApiClients {
 
-public class ApiClient {
-
-    private static final String BASE_URL = Constant.BASE_URL;
+    private static final String BASE_URL = Constant.BASE_URL2;
     private static Retrofit retrofit = null;
 
-    public static Retrofit getApiClient() {
+    public static Retrofit getApiClients() {
 
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
