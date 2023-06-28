@@ -1,11 +1,18 @@
 package com.app.superpos.pos;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.nfc.NdefMessage;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
@@ -27,11 +34,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.superpos.Constant;
+import com.app.superpos.NFCResponse;
 import com.app.superpos.R;
 import com.app.superpos.adapter.CartAdapter;
 import com.app.superpos.database.DatabaseAccess;
 import com.app.superpos.model.Customer;
 import com.app.superpos.networking.ApiClient;
+import com.app.superpos.networking.ApiClients;
 import com.app.superpos.networking.ApiInterface;
 import com.app.superpos.orders.OrdersActivity;
 import com.app.superpos.utils.BaseActivity;
@@ -41,6 +50,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.Charset;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -58,7 +68,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class ProductCart extends BaseActivity {
-
+    //NFC
+    String payloadString;
 
     CartAdapter productCartAdapter;
     ImageView imgNoProduct;
@@ -688,6 +699,7 @@ public class ProductCart extends BaseActivity {
 
 //dfsdgtfdsg
         dialogBtnSubmit.setOnClickListener(v -> {
+            Log.e("NFCfkjdh", String.valueOf(payloadString));
 
             String orderType1 = dialogOrderType.getText().toString().trim();
             String orderPaymentMethod = dialogOrderPaymentMethod.getText().toString().trim();
@@ -696,13 +708,78 @@ public class ProductCart extends BaseActivity {
             if (discount1.isEmpty()) {
                 discount1 = "0.00";
             }
-            proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
+//            proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
             Log.e("orderpaymentMethod", orderPaymentMethod);
             Log.e("orderType1", orderType1);
             Log.e("customerName", customerName);
             Log.e("getTax", String.valueOf(getTax));
             Log.e("discount1", discount1);
             Log.e("calculatedTotalCost", String.valueOf(calculatedTotalCost));
+
+            if (orderPaymentMethod.equalsIgnoreCase("NFC")) {
+                NfcAdapter nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+                if (nfcAdapter != null) {
+                    // NFC is supported on this device
+                    Toast.makeText(this, "NFC Tag Supported...", Toast.LENGTH_SHORT).show();
+                    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                            new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+                    IntentFilter[] intentFiltersArray = new IntentFilter[]{new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED)};
+                    nfcAdapter.enableForegroundDispatch(this, pendingIntent, intentFiltersArray, null);
+
+                    ApiInterface apiInterface = ApiClients.getApiClients().create(ApiInterface.class);
+                    String cardNumber = payloadString;
+                    Call<NFCResponse> nfcResponseCall = apiInterface.postNFC(cardNumber, String.valueOf(calculatedTotalCost)
+                            , orderType1, customerName);
+                    String finalDiscount = discount1;
+                    nfcResponseCall.enqueue(new Callback<NFCResponse>() {
+                        @Override
+                        public void onResponse(Call<NFCResponse> call, Response<NFCResponse> response) {
+                            if (response.isSuccessful()) {
+                                if (response.body().getValue() == "failed") {
+                                    Toast.makeText(ProductCart.this, "Payment Faild", Toast.LENGTH_SHORT).show();
+                                } else if (response.body().getValue() == "successful") {
+                                    Toast.makeText(ProductCart.this, "Successful", Toast.LENGTH_SHORT).show();
+                                    proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, finalDiscount, calculatedTotalCost);
+                                }
+
+                                String successful = response.body().getValue();
+
+                            } else {
+                                Toast.makeText(ProductCart.this, "Sorry", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<NFCResponse> call, Throwable t) {
+                            Toast.makeText(ProductCart.this, "Sorry Sorry", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                } else {
+                    // NFC is not supported on this device
+                    // Handle this case appropriately
+                    Toast.makeText(this, "Your Devices Does Not Support NFC Tag...", Toast.LENGTH_SHORT).show();
+                }
+
+            } else if (orderPaymentMethod.equalsIgnoreCase("PAYPAL")) {
+
+                Toast.makeText(this, "Please Select Another Payment Method...", Toast.LENGTH_SHORT).show();
+
+            } else if (orderPaymentMethod.equals("CASH")) {
+
+                proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
+                Log.e("orderpaymentMethod", orderPaymentMethod);
+                Log.e("orderType1", orderType1);
+                Log.e("customerName", customerName);
+                Log.e("getTax", String.valueOf(getTax));
+                Log.e("discount1", discount1);
+                Log.e("calculatedTotalCost", String.valueOf(calculatedTotalCost));
+
+            } else if (orderPaymentMethod.equalsIgnoreCase("CARD")) {
+                proceedOrder(orderType1, orderPaymentMethod, customerName, getTax, discount1, calculatedTotalCost);
+            } else {
+                Toast.makeText(this, "Please Select Payment Method...", Toast.LENGTH_SHORT).show();
+            }
 
             alertDialog.dismiss();
         });
@@ -713,6 +790,28 @@ public class ProductCart extends BaseActivity {
 
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
+            // Handle the NFC tag data
+            Parcelable[] rawMessages = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+            if (rawMessages != null && rawMessages.length > 0) {
+                NdefMessage message = (NdefMessage) rawMessages[0];
+
+                // Get the payload from the NDEF message
+                byte[] payload = message.getRecords()[0].getPayload();
+
+                // Convert the payload to a string
+                payloadString = new String(payload, Charset.forName("UTF-8"));
+
+                // Do something with the payload string
+                Log.e("OnNEWINtent", payloadString);
+
+                Log.d(TAG, "NFC tag data: " + payloadString);
+            }
+        }
+    }
 
     public void getCustomers(String shopId, String ownerId) {
 
